@@ -4,8 +4,8 @@
 This project turns a raw consumer-behavior CSV into an analytics-ready relational model for **marketing**: we standardize columns, fix data types (e.g., currency to numeric, timestamps to datetime), engineer a **purchase-amount band**, and design a **3NF** warehouse with one **fact** table and five **dimensions** (time, gender, payment method, product category, location). The SQL script then creates tables, loads CSVs via `COPY`, and runs two validation queries for quick sanity checks. The end result is a query-ready schema for segmentation, KPI rollups, and campaign analytics.
 
 ## What’s in this folder
-- **`GC2_ConsumerBehavior_Project.ipynb`** — end-to-end notebook (EDA, cleaning, normalization, CSV export, SQL generator).
-- **`GC2_Consumer_Behavior_SQL.sql`** — ready-to-run DDL + `COPY` + test queries.
+- **`Notebook.ipynb`** — end-to-end notebook (EDA, cleaning, normalization, CSV export, SQL generator).
+- **`Consumer_Behavior_SQL.sql`** — ready-to-run DDL + `COPY` + test queries.
 
 ## Data source
 - Public CSV (as used in the notebook):  
@@ -14,7 +14,7 @@ This project turns a raw consumer-behavior CSV into an analytics-ready relationa
 ## Quick start
 
 ### A) Run with the notebook
-1. Open **`GC2_ConsumerBehavior_Project.ipynb`** and **Run All**:
+1. Open **`Notebook.ipynb`** and **Run All**:
    - Cleans/standardizes columns (e.g., cast `purchase_amount` to float, parse `time_of_purchase`).
    - Creates **`main_table`** (10 selected columns) and **`categorical_purchase_amount`** (low/mid/high).
    - Normalizes into **6 tables**: `main_fact` + 5 dimensions (time, gender, payment method, product category, location).
